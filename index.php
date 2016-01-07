@@ -19,6 +19,7 @@ if($end)
 	$finalURL=$basicURL . $end;
 	$homepage = file_get_contents($finalURL);
 	$data = json_decode($homepage);
+	$homepage = json_encode($homepage,JSON_PRETTY_PRINT);
 	echo $homepage;
 
 	#echo $data['status'];
