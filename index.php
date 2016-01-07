@@ -3,7 +3,7 @@ $end="";
 if($end=="")
 {
 echo '
-		<form method="POST" action="login.php">
+		<form method="POST">
 		<h4>Location?</h4>
 		Username <input type="text" name="u" value=""> <br>
 		<input type="submit" value="Submit">
