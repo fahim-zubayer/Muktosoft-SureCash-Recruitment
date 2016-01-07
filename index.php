@@ -16,13 +16,11 @@ $basicURL = "http://maps.googleapis.com/maps/api/geocode/json?address=";
 #}
 if($end)
 {
+	header('Content-Type: text/plain');
 	$finalURL=$basicURL . $end;
 	$homepage = file_get_contents($finalURL);
 	$data = json_decode($homepage);
-	$homepage = json_encode($homepage,JSON_PRETTY_PRINT);
-	print($homepage);
-
-	#echo $data['status'];
+	echo $homepage;
 	$end="";
 }
 ?>
