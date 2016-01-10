@@ -28,7 +28,7 @@ $data= $twitter->setGetfield($getfield)
 
 $da=json_decode($data,true);
 
-$ans=array(''=>0);
+$ans=array();
 
 for($x=0;$x<count($da);$x++)
 {
@@ -38,6 +38,8 @@ for($x=0;$x<count($da);$x++)
 	for($a=0;$a<count($da[$x]["entities"]["hashtags"]);$a++)
 	{
 		$tag=$da[$x]["entities"]["hashtags"][$a]["text"];
+		
+		echo $tag."<br>";
 		
 		if(!isset($ans[$tag]))
 		{
@@ -53,6 +55,8 @@ for($x=0;$x<count($da);$x++)
 	}
 	echo "-------<br>";
 }
+
+arsort($ans);
 
 $an=json_encode($ans);
 
