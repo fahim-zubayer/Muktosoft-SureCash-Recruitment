@@ -19,7 +19,7 @@ $id=$_GET['twitter_id'];
 $cnt=$_GET['n'];
 
 $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-$getfield = '?screen_name='.$id.'&count=5';
+$getfield = '?screen_name='.$id.'&count=25';
 $requestMethod = 'GET';
 $twitter = new TwitterAPIExchange($settings);
 $data= $twitter->setGetfield($getfield)
@@ -32,6 +32,11 @@ $da=json_decode($data,true);
 for($x=0;$x<count($da);$x++)
 {
 	$cn=count($da[$x]["entities"]["hashtags"]);
+	if($cn==0) continue;
 	//var_dump($data[$x]["hashtags"]);
-	echo $cn." ".$da[$x]["entities"]["hashtags"][0]["text"]."\n";
+	for($a=0;$a<count($da[$x]["entities"]["hashtags"]);$a++)
+	{
+		echo $da[$x]["entities"]["hashtags"][$a]["text"]."<br>";
+	}
+	echo "-------<br>";
 }
