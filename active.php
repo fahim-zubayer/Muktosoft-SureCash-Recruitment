@@ -68,7 +68,7 @@ if($SPAN=="hour")
 {
 	$ans=array_slice($hr,0,1);
 
-	$an=json_encode($ans);
+	$an=json_encode($hr);
 
 	print($an);
 
