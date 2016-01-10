@@ -18,21 +18,20 @@ $settings = array(
 $id=$_GET['twitter_id'];
 $cnt=$_GET['n'];
 
-$url = 'https://api.twitter.com/1.1/search/tweets.json';
-$getfield = '?q=@'.$id.'&count=5&result_type=recent';
+$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+$getfield = '?screen_name='.$id.'&count=5';
 $requestMethod = 'GET';
 $twitter = new TwitterAPIExchange($settings);
 $data= $twitter->setGetfield($getfield)
              ->buildOauth($url, $requestMethod)
              ->performRequest();
 
-$da=json_decode($data,true);
-
-echo $data.'\n';
+$da=json_decode($data);
+echo $da;
 /*
 for($x=0;$x<count($da);$x++)
 {
 	$cn=count(array($data[$x]["hashtags"]));
-	
-	echo $da[$x].'\n';
+	var_dump($data[$x]["hashtags"]);
+	echo '\n';
 }*/
