@@ -68,7 +68,7 @@ if($SPAN=="hour")
 {
 	$s=json_encode($hr);
 	$k="";
-	for($a=0;$a<11;$a++) $k=$k.$s[a];
+	for($a=0;$a<11;$a++) $k=$k.$s[$a];
 	$k=$k.'}';
 	print $k;
 }
