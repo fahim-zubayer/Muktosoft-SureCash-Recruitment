@@ -19,7 +19,7 @@ $id=$_GET['twitter_id'];
 $cnt=$_GET['n'];
 
 $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-$getfield = '?screen_name='.$id.'&count=25';
+$getfield = '?screen_name='.$id.'&count=50';
 $requestMethod = 'GET';
 $twitter = new TwitterAPIExchange($settings);
 $data= $twitter->setGetfield($getfield)
