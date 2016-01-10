@@ -29,10 +29,11 @@ $word_list=array();
 for($x=0;$x<count($da);$x++)
 {
 	$st=$da[$x]["text"];
-	$ar=preg_split("\s+",$st);
-	foreach($ar as $a)
+	$ar=preg_split("[\s]",$st);
+
+	for($a=0;$a<count($ar);$a++)
 	{
-		array_push($word_list,$a);
+		array_push($word_list,$ar[$a]);
 	}
 	echo $st;
 	echo "-------<br>";
