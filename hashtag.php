@@ -28,10 +28,10 @@ $data= $twitter->setGetfield($getfield)
 
 $da=json_decode($data);
 echo $data;
-/*
+
 for($x=0;$x<count($da);$x++)
 {
-	$cn=count(array($data[$x]["hashtags"]));
-	var_dump($data[$x]["hashtags"]);
-	echo '\n';
-}*/
+	$cn=count($da[$x]["entities"]["hashtags"]);
+	//var_dump($data[$x]["hashtags"]);
+	echo $cn.'\n';
+}
