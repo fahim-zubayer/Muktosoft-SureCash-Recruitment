@@ -30,5 +30,6 @@ $data=json_decode($data,true);
 
 for($x=0;$x<count($data);$x++)
 {
-	echo $data[$x]["created_at"]."\n";
+	$cn=count($data[$x]["hashtags"]);
+	echo $cn."\n";
 }
