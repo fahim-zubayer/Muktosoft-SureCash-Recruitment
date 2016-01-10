@@ -43,7 +43,7 @@ for($x=0;$x<count($da);$x++)
 			$day[$d]=$c;
 		}
 	
-	$t=$st[11].st[12];
+	$t=$st[11].$st[12];
 	
 	if(!isset($hr[$t]))
 		{
