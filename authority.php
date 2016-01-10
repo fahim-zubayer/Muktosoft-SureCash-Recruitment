@@ -29,7 +29,7 @@ $word_list=array();
 for($x=0;$x<count($da);$x++)
 {
 	$st=$da[$x]["text"];
-	$ar=preg_grep("[\w]+",$st);
+	$ar=preg_split("[\s]",$st);
 
 	for($a=0;$a<count($ar);$a++)
 	{
@@ -44,7 +44,7 @@ for($a=0;$a<count($word_list);$a++)
 		echo $word_list[$a]." ";
 	}echo "<br>";
 
-$ar=preg_grep("[\w]+",$tweet);
+$ar=preg_split("[\s]",$tweet);
 $prob=1;
 
 for($a=0;$a<count($ar);$a++)
