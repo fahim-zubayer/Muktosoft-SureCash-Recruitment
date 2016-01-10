@@ -26,8 +26,4 @@ $data= $twitter->setGetfield($getfield)
              ->buildOauth($url, $requestMethod)
              ->performRequest();
 
-$d=json_decode($data,true);
-foreach( $d as $a)
-{
-	echo $a['truncated'];
-}
+echo $data
