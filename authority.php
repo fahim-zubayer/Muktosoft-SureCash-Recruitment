@@ -15,7 +15,7 @@ $id=$_GET['twitter_id'];
 $tweet=$_GET['tweet'];
 
 $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-$getfield = '?screen_name='.$id.'&count=5';
+$getfield = '?screen_name='.$id.'&count=200';
 $requestMethod = 'GET';
 $twitter = new TwitterAPIExchange($settings);
 $data= $twitter->setGetfield($getfield)
@@ -29,14 +29,14 @@ $word_list=array();
 for($x=0;$x<count($da);$x++)
 {
 	$st=$da[$x]["text"];
-	$ar=preg_split("[\s]",$st);
+	$ar=preg_split("[\w]",$st);
 
 	for($a=0;$a<count($ar);$a++)
 	{
 		array_push($word_list,$ar[$a]);
 	}
-	echo $st;
-	echo "-------<br>";
+	//echo $st;
+	//echo "-------<br>";
 }
 
 $ar=preg_split("[\s]",$tweet);
@@ -46,7 +46,7 @@ for($a=0;$a<count($ar);$a++)
 {
 	if(!in_array($ar[$a],$word_list))
 	{
-		$prob=$prob*(1.00/rand(2,50));
+		$prob=$prob*(1.00/rand(2,6));
 	}
 }
 
