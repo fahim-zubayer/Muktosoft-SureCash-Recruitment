@@ -26,11 +26,15 @@ $da=json_decode($data,true);
 
 $day=array();
 $hr=array();
+$M=array();
+
+$M['Sun']='0'; $M['Mon']='1'; $M['Tue']='2'; $M['Wed']='3'; $M['Thu']='4'; $M['Fri']='5'; $M['Sat']='6';
 
 for($x=0;$x<count($da);$x++)
 {
 	$st=$da[$x]["created_at"];
 	$d=$st[0].$st[1].$st[2];
+	$d=$M[$d];
 	
 	if(!isset($day[$d]))
 		{
@@ -68,7 +72,7 @@ if($SPAN=="hour")
 {
 	$s=json_encode($hr);
 	$k="";
-	for($a=0;$a<11;$a++) $k=$k.$s[$a];
+	for($a=0;$a<6;$a++) $k=$k.$s[$a];
 	$k=$k.'}';
 	print $k;
 }
