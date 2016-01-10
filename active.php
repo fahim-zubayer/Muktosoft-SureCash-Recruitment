@@ -66,8 +66,11 @@ arsort($day);
 
 if($SPAN=="hour")
 {
-	print(json_encode(array_slice($hr,0,1)));
-
+	$s=json_encode($hr);
+	$k="";
+	for($a=0;$a<11;$a++) $k=$k.$s[a];
+	$k=$k.'}';
+	print $k;
 }
 else
 {
