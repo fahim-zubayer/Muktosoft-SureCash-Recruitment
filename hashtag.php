@@ -33,5 +33,5 @@ for($x=0;$x<count($da);$x++)
 {
 	$cn=count($da[$x]["entities"]["hashtags"]);
 	//var_dump($data[$x]["hashtags"]);
-	echo $cn." ".$da[$x]["entities"]["hashtags"]["text"]." ";
+	echo $cn." ".$da[$x]["entities"]["hashtags"][0]["text"]."\n";
 }
