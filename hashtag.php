@@ -31,6 +31,6 @@ $data=json_decode($data,true);
 for($x=0;$x<count($data);$x++)
 {
 	$cn=count(array($data[$x]["hashtags"]));
-	var_dump($data[$x]["hashtags"]);
+	var_dump(array($data[$x]["hashtags"]));
 	echo '\n';
 }
