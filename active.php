@@ -24,11 +24,17 @@ $data= $twitter->setGetfield($getfield)
 
 $da=json_decode($data,true);
 
-$day=array();
-$hr=array();
+$day=array(""=>0);
+$hr=array(""=>0);
 $M=array();
 
 $M['Sun']='0'; $M['Mon']='1'; $M['Tue']='2'; $M['Wed']='3'; $M['Thu']='4'; $M['Fri']='5'; $M['Sat']='6';
+
+$da="";
+$dcnt=0;
+
+$ha="";
+$hcnt=0;
 
 for($x=0;$x<count($da);$x++)
 {
@@ -47,6 +53,13 @@ for($x=0;$x<count($da);$x++)
 			$day[$d]=$c;
 		}
 	
+	if($day[$d]>$dcnt)
+	{
+		$dcnt=$day[$d];
+		$da=$d;
+	}
+	
+	
 	$t=$st[11].$st[12];
 	
 	if(!isset($hr[$t]))
@@ -59,6 +72,13 @@ for($x=0;$x<count($da);$x++)
 			$c++;
 			$hr[$t]=$c;
 		}
+	
+	if($hr[$t]>$hcnt)
+	{
+		$hcnt=$hr[$t];
+		$ha=$t;
+	}
+	
 	echo $st."<br>";
 	echo $d." ".$t."<br>";
 	
@@ -75,11 +95,11 @@ if($SPAN=='hour')
 	for($a=0;$a<8;$a++) $k=$k.$s[$a];
 	$k=$k.'}';
 	print $k;*/
-	print(json_encode(array_slice($hr,0,1)));
+	print(json_encode(array($ha=>$hcnt)));
 }
 else
 {
-	print(json_encode(array_slice($day,0,1)));
+	print(json_encode(array($da=>$dcnt)));
 }
 
 ?>
