@@ -56,4 +56,4 @@ for($x=0;$x<count($da);$x++)
 
 $an=json_encode($ans);
 
-echo $ans;
+echo $an;
