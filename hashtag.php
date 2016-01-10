@@ -26,11 +26,12 @@ $data= $twitter->setGetfield($getfield)
              ->buildOauth($url, $requestMethod)
              ->performRequest();
 
-$data=json_decode($data,true);
+$da=json_decode($data,true);
 
-for($x=0;$x<count($data);$x++)
+
+for($x=0;$x<count($da);$x++)
 {
 	$cn=count(array($data[$x]["hashtags"]));
-	var_dump($data[$x]["hashtags"]);
-	echo '\n';
+	
+	echo $da[$x].'\n';
 }
