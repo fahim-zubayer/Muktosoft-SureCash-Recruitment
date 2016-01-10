@@ -26,8 +26,8 @@ $data= $twitter->setGetfield($getfield)
              ->buildOauth($url, $requestMethod)
              ->performRequest();
 
-$da=json_decode($data);
-echo $data;
+$da=json_decode($data,true);
+//echo $data;
 
 for($x=0;$x<count($da);$x++)
 {
