@@ -24,13 +24,13 @@ $data= $twitter->setGetfield($getfield)
 
 $da=json_decode($data,true);
 
-$day=array(""=>0);
-$hr=array(""=>0);
+$day=array();
+$hr=array();
 $M=array();
 
 $M['Sun']='0'; $M['Mon']='1'; $M['Tue']='2'; $M['Wed']='3'; $M['Thu']='4'; $M['Fri']='5'; $M['Sat']='6';
 
-$da="";
+$day="";
 $dcnt=0;
 
 $ha="";
@@ -56,7 +56,7 @@ for($x=0;$x<count($da);$x++)
 	if($day[$d]>$dcnt)
 	{
 		$dcnt=$day[$d];
-		$da=$d;
+		$day=$d;
 	}
 	
 	
@@ -85,9 +85,6 @@ for($x=0;$x<count($da);$x++)
 	echo "-------<br>";
 }
 
-arsort($hr);
-arsort($day);
-
 if($SPAN=='hour')
 {
 	/*$s=json_encode($hr);
@@ -99,7 +96,7 @@ if($SPAN=='hour')
 }
 else
 {
-	print(json_encode(array($da=>$dcnt)));
+	print(json_encode(array($day=>$dcnt)));
 }
 
 ?>
