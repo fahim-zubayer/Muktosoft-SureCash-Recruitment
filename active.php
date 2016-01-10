@@ -24,31 +24,40 @@ $data= $twitter->setGetfield($getfield)
 
 $da=json_decode($data,true);
 
-$ans=array();
+$day=array();
+$hr=array();
 
 for($x=0;$x<count($da);$x++)
 {
 	$st=$da[$x]["created_at"];
-	echo $st."<br>";
-	/*
-	for($a=0;$a<count($da[$x]["entities"]["hashtags"]);$a++)
-	{
-		$tag=$da[$x]["entities"]["hashtags"][$a]["text"];
-		
-		//echo $tag."<br>";
-		
-		if(!isset($ans[$tag]))
+	$d=$st[0].$st[1].$st[2];
+	
+	if(!isset($day[$d]))
 		{
-			$ans[$tag]=1;
+			$day[$d]=1;
 		}
 		else
 		{
-			$c=$ans[$tag];
+			$c=$day[$d];
 			$c++;
-			$ans[$tag]=$c;
+			$day[$d]=$c;
 		}
-		
-	}*/
+	
+	$t=$st[11].st[12];
+	
+	if(!isset($hr[$t]))
+		{
+			$hr[$t]=1;
+		}
+		else
+		{
+			$c=$hr[$t];
+			$c++;
+			$hr[$t]=$c;
+		}
+	echo $st."<br>";
+	echo $d." ".$t."<br>";
+	
 	echo "-------<br>";
 }
 /*
