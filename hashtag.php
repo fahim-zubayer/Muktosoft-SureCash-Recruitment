@@ -26,4 +26,9 @@ $data= $twitter->setGetfield($getfield)
              ->buildOauth($url, $requestMethod)
              ->performRequest();
 
-echo $data;
+$data=json_decode($data,true);
+
+for($x=0;$x<count($data);$x++)
+{
+	echo $data[$x]["created_at"]."\n";
+}
