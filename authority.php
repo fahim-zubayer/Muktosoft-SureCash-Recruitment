@@ -12,7 +12,7 @@ $settings = array(
 
 
 $id=$_GET['twitter_id'];
-$SPAN=$_GET['tweet'];
+$tweet=$_GET['tweet'];
 
 $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 $getfield = '?screen_name='.$id.'&count=5';
@@ -39,5 +39,19 @@ for($x=0;$x<count($da);$x++)
 	echo "-------<br>";
 }
 
+$ar=preg_split("[\s]",$tweet);
+$prob=1;
+
+for($a=0;$a<count($ar);$a++)
+{
+	if(!in_array($ar[$a],$word_list))
+	{
+		$prob=$prob*(1.00/rand(2,50));
+	}
+}
+
+$ar=array("twitter_id"=>$id, "tweet"=>$tweet, "probability"=>$prob);
+
+print(json_encode($ar));
 
 ?>
