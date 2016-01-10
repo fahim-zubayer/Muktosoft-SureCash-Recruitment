@@ -15,7 +15,7 @@ $id=$_GET['twitter_id'];
 $SPAN=$_GET['time_span'];
 
 $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-$getfield = '?screen_name='.$id.'&count=20';
+$getfield = '?screen_name='.$id.'&count=200';
 $requestMethod = 'GET';
 $twitter = new TwitterAPIExchange($settings);
 $data= $twitter->setGetfield($getfield)
@@ -79,19 +79,14 @@ for($x=0;$x<count($da);$x++)
 		$ha=$t;
 	}
 	
-	echo $st."<br>";
-	echo $d." ".$t."<br>";
+	//echo $st."<br>";
+	//echo $d." ".$t."<br>";
 	
-	echo "-------<br>";
+	//echo "-------<br>";
 }
 
 if($SPAN=='hour')
 {
-	/*$s=json_encode($hr);
-	$k="";
-	for($a=0;$a<8;$a++) $k=$k.$s[$a];
-	$k=$k.'}';
-	print $k;*/
 	print(json_encode(array($ha=>$hcnt)));
 }
 else
