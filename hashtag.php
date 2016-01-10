@@ -27,7 +27,7 @@ $data= $twitter->setGetfield($getfield)
              ->performRequest();
 
 $da=json_decode($data);
-echo $da;
+echo $data;
 /*
 for($x=0;$x<count($da);$x++)
 {
