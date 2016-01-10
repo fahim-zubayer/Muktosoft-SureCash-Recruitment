@@ -27,16 +27,33 @@ $data= $twitter->setGetfield($getfield)
              ->performRequest();
 
 $da=json_decode($data,true);
-//echo $data;
+
+$ans=array(''=>0);
 
 for($x=0;$x<count($da);$x++)
 {
 	$cn=count($da[$x]["entities"]["hashtags"]);
 	if($cn==0) continue;
-	//var_dump($data[$x]["hashtags"]);
+
 	for($a=0;$a<count($da[$x]["entities"]["hashtags"]);$a++)
 	{
-		echo $da[$x]["entities"]["hashtags"][$a]["text"]."<br>";
+		$tag=$da[$x]["entities"]["hashtags"][$a]["text"];
+		
+		if(!isset($ans[$tag]))
+		{
+			$ans[$tag]=1;
+		}
+		else
+		{
+			$c=$ans[$tag];
+			$c++;
+			$ans[$tag]=$c;
+		}
+		
 	}
 	echo "-------<br>";
 }
+
+$an=json_encode($ans);
+
+echo $ans;
