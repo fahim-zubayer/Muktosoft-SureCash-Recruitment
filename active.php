@@ -12,7 +12,7 @@ $settings = array(
 
 
 $id=$_GET['twitter_id'];
-$cnt=$_GET['time_span'];
+$SPAN=$_GET['time_span'];
 
 $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 $getfield = '?screen_name='.$id.'&count=20';
@@ -60,14 +60,25 @@ for($x=0;$x<count($da);$x++)
 	
 	echo "-------<br>";
 }
-/*
-arsort($ans);
 
-$ans=array_slice($ans,0,$cnt);
+arsort($hr);
+arsort($day);
 
-$an=json_encode($ans);
+if($SPAN=="hour")
+{
+	$ans=array_slice($hr,0,1);
 
-print($an);
-*/
+	$an=json_encode($ans);
+
+	print($an);
+
+}
+else
+{
+	$ans=array_slice($day,0,1);
+	$an=json_encode($ans);
+
+	print($an);
+}
 
 ?>
