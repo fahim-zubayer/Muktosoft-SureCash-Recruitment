@@ -18,7 +18,7 @@ $settings = array(
 $id=$_GET['twitter_id'];
 $cnt=$_GET['n'];
 
-$url = 'https://api.twitter.com/1.1/followers/ids.json';
+$url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 $getfield = '?screen_name='.$id.'&count=200';
 $requestMethod = 'GET';
 $twitter = new TwitterAPIExchange($settings);
