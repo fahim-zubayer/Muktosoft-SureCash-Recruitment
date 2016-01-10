@@ -58,6 +58,8 @@ for($x=0;$x<count($da);$x++)
 
 arsort($ans);
 
+$ans=array_slice($ans,0,$cnt);
+
 $an=json_encode($ans);
 
 echo $an;
