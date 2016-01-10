@@ -30,7 +30,7 @@ $M=array();
 
 $M['Sun']='0'; $M['Mon']='1'; $M['Tue']='2'; $M['Wed']='3'; $M['Thu']='4'; $M['Fri']='5'; $M['Sat']='6';
 
-$day="";
+$dayy="";
 $dcnt=0;
 
 $ha="";
@@ -56,7 +56,7 @@ for($x=0;$x<count($da);$x++)
 	if($day[$d]>$dcnt)
 	{
 		$dcnt=$day[$d];
-		$day=$d;
+		$dayy=$d;
 	}
 	
 	
@@ -96,7 +96,7 @@ if($SPAN=='hour')
 }
 else
 {
-	print(json_encode(array($day=>$dcnt)));
+	print(json_encode(array($dayy=>$dcnt)));
 }
 
 ?>
