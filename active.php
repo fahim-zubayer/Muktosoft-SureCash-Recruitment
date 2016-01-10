@@ -68,13 +68,14 @@ for($x=0;$x<count($da);$x++)
 arsort($hr);
 arsort($day);
 
-if($SPAN=="hour")
+if($SPAN=='hour')
 {
-	$s=json_encode($hr);
+	/*$s=json_encode($hr);
 	$k="";
-	for($a=0;$a<6;$a++) $k=$k.$s[$a];
+	for($a=0;$a<8;$a++) $k=$k.$s[$a];
 	$k=$k.'}';
-	print $k;
+	print $k;*/
+	print(json_encode(array_slice($hr,0,1)));
 }
 else
 {
